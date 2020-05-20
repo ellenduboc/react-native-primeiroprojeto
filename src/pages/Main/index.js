@@ -6,7 +6,19 @@ import api from '../../services/api';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { Container, Form, Input, SubmitButton } from './styles';
+import {
+    Container,
+    Form,
+    Input,
+    SubmitButton,
+    List,
+    User,
+    Avatar,
+    Name,
+    Bio,
+    ProfileButton,
+    ProfileButtonText
+} from './styles';
 
 export default class Main extends Component {
     state = {
@@ -55,6 +67,21 @@ export default class Main extends Component {
                         <Icon name="add" size={20} color="#FFF" />
                     </SubmitButton>
                 </Form>
+                <List
+                    data={users}
+                    keyExtractor={user => user.login}
+                    renderItem={({ item }) => (
+                        <User>
+                            <Avatar source={{ uri: item.avatar }} />
+                            <Name>{item.name}</Name>
+                            <Bio>{item.bio}</Bio>
+
+                            <ProfileButton onPress={() => { }}>
+                                <ProfileButtonText>Ver perfil</ProfileButtonText>
+                            </ProfileButton>
+                        </User>
+                    )}
+                />
             </Container>
         );
     }
