@@ -1,35 +1,13 @@
 module.exports = {
-    env: {
-        es6: true,
-    },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'prettier',
-        'prettier/react',
-    ],
-    globals: {
-        Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly',
-        __Dev__: 'readonly',
-    },
-    parser: 'babel-eslint',
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
-        ecmaVersion: 11,
-        sourceType: 'module',
-    },
-    plugins: [
-        'react',
-    ],
+    root: true,
+    extends: ['@react-native-community', 'prettier', 'prettier/react'],
     rules: {
         'prettier/prettier': 'error',
         'react/jsx-filename-extension': [
             'warn',
-            { extensions: ['.jsx', '.js'] }
+            { extensions: ['.js', '.jsx'] }
         ],
-        'import/prefer-default-export': 'off'
-    },
+        'import/prefer-default-export': 'off',
+        'jsx-quotes': ['error', 'prefer-single']
+    }
 };
